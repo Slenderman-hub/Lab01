@@ -5,6 +5,7 @@ StrongPotion strongPotion = new();
 
 knight.GetWeapon(sword);
 knight.GetItem(strongPotion);
+Console.WriteLine();
 
 GameField.Start(knight);
 
@@ -151,7 +152,7 @@ public record Weapon
     }
     public override int GetHashCode()
     {
-        return Damage + 10000;
+        return Damage;
     }
     public override string ToString()
     {
@@ -195,7 +196,16 @@ public abstract class Hero
 
         if (PSkill is PassiveSkill.SteelHeart)
         {
+            Console.ForegroundColor= ConsoleColor.Yellow;
+            Console.WriteLine("Была получена пассивная способность Стальное Сердце [+10 к здоровью]");
+            Console.ForegroundColor = ConsoleColor.White;
             Health += 10;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Была получена пассивная способность Взрывной удар [+10 к урону от оружия]");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 
@@ -225,7 +235,7 @@ public abstract class Hero
 
     public override bool Equals(object? obj)
     {
-        return this == obj;
+        return obj.GetHashCode == obj.GetHashCode;
     }
     public override int GetHashCode()
     {
