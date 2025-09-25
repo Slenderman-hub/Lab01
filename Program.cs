@@ -1,13 +1,13 @@
 ﻿Console.CancelKeyPress += ControlCancel;
+
 Weapon sword = new("Меч");
 Knight knight = new("john");
 StrongPotion strongPotion = new();
-
 knight.GetWeapon(sword);
 knight.GetItem(strongPotion);
 Console.WriteLine();
 
-GameField.Start(knight);
+GameSession.Start(knight);
 
 Console.WriteLine("Программа завершилась");
 Console.ForegroundColor = ConsoleColor.White;
@@ -17,7 +17,7 @@ static async void ControlCancel(object? sender, ConsoleCancelEventArgs e)
 {
     e.Cancel = true;
 }
-public static class GameField
+public static class GameSession
 {
 
     public static void Start(Knight knight)
