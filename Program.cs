@@ -15,7 +15,7 @@ Console.ForegroundColor = ConsoleColor.White;
 
 static async void ControlCancel(object? sender, ConsoleCancelEventArgs e)
 {
-    e.Cancel = true;
+    e.Cancel = tru;
 }
 public static class GameSession
 {
